@@ -1,6 +1,13 @@
 package fr.pizzeria.console;
 import java.util.Scanner;
 
+/**
+ * 
+ * classe principale
+ * @author CHAFFARD Joris
+ *
+ */
+
 public class run {
 
 	public static void main(String[] args) {

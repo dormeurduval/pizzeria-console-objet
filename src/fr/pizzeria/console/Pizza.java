@@ -1,11 +1,19 @@
 package fr.pizzeria.console;
 
+/**
+ * 
+ * classe qui sert à gérer les pizzas
+ * @author CHAFFARD Joris
+ *
+ */
+
 public class Pizza {
+
 	private int id;
 	private String code;
 	private String nom;
 	private double prix;
-	static int current_id=0;
+	static int CURRENT_ID=0;
 	
 	public int getId() {
 		return id;
@@ -43,11 +51,10 @@ public class Pizza {
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		this.id = current_id;
-		current_id++;
+		this.id = CURRENT_ID;
+		CURRENT_ID++;
 	}
 		
-	
 	public void affPizza(){
 		System.out.println(code+" -> "+nom+"("+prix+"euros)");
 	}

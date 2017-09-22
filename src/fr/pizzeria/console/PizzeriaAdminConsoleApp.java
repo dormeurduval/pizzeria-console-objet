@@ -1,6 +1,14 @@
 package fr.pizzeria.console;
 import java.util.LinkedList;
 
+/**
+ * 
+ * classe qui sert à gérer les menus de pizzas
+ * @author CHAFFARD Joris
+ *
+ */
+
+
 public class PizzeriaAdminConsoleApp {
 	private LinkedList<Pizza> menu;
 
