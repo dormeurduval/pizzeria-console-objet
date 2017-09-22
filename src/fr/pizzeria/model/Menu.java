@@ -1,4 +1,4 @@
-package fr.pizzeria.console;
+package fr.pizzeria.model;
 import java.util.LinkedList;
 
 /**
@@ -9,10 +9,10 @@ import java.util.LinkedList;
  */
 
 
-public class PizzeriaAdminConsoleApp {
+public class Menu {
 	private LinkedList<Pizza> menu;
 
-	public PizzeriaAdminConsoleApp(){
+	public Menu(){
 		menu = new LinkedList<Pizza>();
 		menu.add(new Pizza("PEP","Pépéroni",12.50));
 		menu.add(new Pizza("MAR","Margherita",14));

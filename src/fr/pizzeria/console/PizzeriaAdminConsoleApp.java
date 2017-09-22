@@ -1,21 +1,32 @@
 package fr.pizzeria.console;
 import java.util.Scanner;
 
+import fr.pizzeria.dao.PizzaDao;
+
+
 /**
  * 
  * classe principale
  * @author CHAFFARD Joris
  *
  */
+import fr.pizzeria.ihm.*;
 
-public class run {
+public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean end = false;
-		Scanner questionUser= new Scanner(System.in);
+		final Scanner questionUser= new Scanner(System.in);
 		
-		PizzeriaAdminConsoleApp Menu = new PizzeriaAdminConsoleApp();
+		PizzaDao menu = new PizzaDao();
+		
+		AjouterPizzaOptionMenu ajout = new AjouterPizzaOptionMenu();
+		ListerPizzasOptionMenu listage = new ListerPizzasOptionMenu();
+		ModifierPizzaOptionMenu modification = new ModifierPizzaOptionMenu();
+		SupprimerPizzaOptionMenu suppression = new SupprimerPizzaOptionMenu();
+		
+		
 		
 		while(!end){
 			System.out.println("***Pizzeria Administration******");
@@ -28,57 +39,20 @@ public class run {
 			int answer = questionUser.nextInt();
 			questionUser.nextLine();
 			if(answer==1){
-				System.out.println("Liste des pizzas");
-				System.out.println();
-				Menu.affMenu();
+				System.out.println(listage.getLibelle());
+				listage.execute(menu, questionUser);
 			}
 			else if(answer==2){
-				System.out.println("Ajout d'une nouvelle pizza");
-				System.out.println();
-				Menu.affMenu();
-				System.out.println("Veuillez saisir le code");
-				System.out.println();
-				String code=questionUser.nextLine();
-				System.out.println("Veuillez saisir le nom(sans espace)");
-				System.out.println();
-				String nom=questionUser.nextLine();
-				System.out.println("Veuillez saisir le prix");
-				System.out.println();
-				int prix=questionUser.nextInt();
-				questionUser.nextLine();
-				Menu.ajoutPizza(new Pizza(code,nom,prix));
-				System.out.println();
-				Menu.affMenu();
+				System.out.println(ajout.getLibelle());
+				ajout.execute(menu, questionUser);
 			}
 			else if(answer==3){
-				System.out.println("Mise à jour d'une pizza");
-				System.out.println();
-				Menu.affMenu();
-				System.out.println("Veuillez saisir l'ancien code");
-				System.out.println();
-				String oldCode=questionUser.nextLine();
-				System.out.println("Veuillez saisir le nouveau code");
-				System.out.println();
-				String newCode=questionUser.nextLine();
-				System.out.println("Veuillez saisir le nom(sans espace)");
-				System.out.println();
-				String nom=questionUser.nextLine();
-				System.out.println("Veuillez saisir le prix");
-				System.out.println();
-				int prix=questionUser.nextInt();
-				questionUser.nextLine();
-				Menu.changePizza(oldCode, newCode, nom, prix);
-				Menu.affMenu();
+				System.out.println(modification.getLibelle());
+				modification.execute(menu, questionUser);
 			}
 			else if(answer==4){
-				System.out.println("Suppression d'une pizza");
-				System.out.println();
-				Menu.affMenu();
-				System.out.println("Veuillez saisir le code de la pizza à supprimer");
-				System.out.println();
-				String code=questionUser.nextLine();
-				Menu.removePizza(code);
-				Menu.affMenu();
+				System.out.println(suppression.getLibelle());
+				suppression.execute(menu, questionUser);
 			}
 			else{
 				System.out.println("Aurevoir \u2639");
