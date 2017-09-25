@@ -16,15 +16,13 @@ import fr.pizzeria.model.Pizza;
  */
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws UpdatePizzaException{
+	public boolean execute(PizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir l'ancien code");
 		System.out.println();
 		String oldCode=questionUser.nextLine();
-		if(oldCode.length()>3){
-			throw new UpdatePizzaException("Code trop long");
-		}
+
 		System.out.println("Veuillez saisir le nouveau code");
 		System.out.println();
 		String newCode=questionUser.nextLine();

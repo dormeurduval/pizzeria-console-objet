@@ -16,10 +16,10 @@ public class Pizza {
 
 	private int id;
 	
-	
+	@ToString(uppercase=true)
 	private String code;
 	
-	
+	@ToString(uppercase=true)
 	private String nom;
 	
 	
@@ -96,22 +96,18 @@ public class Pizza {
 	
 	
 	
-	public String toStringAnnotation(){
+	public String toStringAnnotation() throws IllegalArgumentException, IllegalAccessException{
 		
 		String s = "";
 		Class classe = this.getClass();
 		for (java.lang.reflect.Field fields : classe.getDeclaredFields() ){
 				if(fields.isAnnotationPresent(ToString.class)){
-					if(fields.getName()=="id")
-						s += "id = "+id+" ";
-					else if(fields.getName()=="code")
-						s+="code = "+code+" ";
-					else if(fields.getName()=="nom")
-						s+="nom = "+nom+" ";
-					else if(fields.getName()=="prix")
-						s+="prix = "+prix+" ";
-					else if(fields.getName()=="categorie")
-						s+="categorie = "+categorie+" ";			
+					if(!fields.getAnnotation(ToString.class).uppercase()){
+						s += fields.getName()+" = "+fields.get(this)+" ";
+					}
+					else{
+						s += fields.getName().toUpperCase() + " = "+((String)fields.get(this)).toUpperCase()+" ";
+					}
 						
 				}
 		}

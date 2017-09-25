@@ -12,11 +12,11 @@ import fr.pizzeria.exeception.StockageException;
  */
 public abstract class OptionMenu {
 
-	abstract boolean execute(PizzaDao menu,Scanner questionUser)throws StockageException;
+	abstract boolean execute(PizzaDao menu,Scanner questionUser)throws StockageException,IllegalArgumentException, IllegalAccessException;
 	
 	abstract String getLibelle();
 	
-	public void affMenu(PizzaDao menu){
+	public void affMenu(PizzaDao menu) throws IllegalArgumentException, IllegalAccessException{
 		for(int i=0;i<menu.findAllPizzas().size();i++){
 			System.out.println(menu.findAllPizzas().get(i).toStringAnnotation());
 		}

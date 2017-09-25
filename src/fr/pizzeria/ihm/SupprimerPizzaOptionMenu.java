@@ -14,16 +14,17 @@ import fr.pizzeria.exeception.UpdatePizzaException;
  */
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws DeletePizzaException{
+	public boolean execute(PizzaDao menu,Scanner questionUser) throws DeletePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir le code de la pizza à supprimer");
 		System.out.println();
 		String code=questionUser.nextLine();
-		if(code.length()>3){
-			throw new DeletePizzaException("Code trop long");
+		boolean isReussite=menu.deletePizza(code);
+		if(!isReussite){
+			throw new DeletePizzaException("Suppression a échouée");
 		}
-		menu.deletePizza(code);
+		
 		affMenu(menu);
 		return true;
 	}

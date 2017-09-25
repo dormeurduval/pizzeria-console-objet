@@ -1,6 +1,5 @@
 
 package fr.pizzeria.ihm;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.PizzaDao;
@@ -18,10 +17,12 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 
 	/**
 	 * execute
+	 * @throws IllegalAccessException 
+	 * @throws IllegalArgumentException 
 	 * 
 	 */
 	
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws SavePizzaException{
+	public boolean execute(PizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir le code");

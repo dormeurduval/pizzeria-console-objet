@@ -12,7 +12,7 @@ import fr.pizzeria.dao.PizzaDao;
  */
 public class ListerPizzasOptionMenu extends OptionMenu {
 	
-	public boolean execute(PizzaDao menu,Scanner questionUser){
+	public boolean execute(PizzaDao menu,Scanner questionUser) throws IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		return true;
