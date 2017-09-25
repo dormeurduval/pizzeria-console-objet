@@ -2,7 +2,7 @@
  * 
  */
 package fr.pizzeria.dao;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import fr.pizzeria.model.Pizza;
 /**
@@ -10,7 +10,7 @@ import fr.pizzeria.model.Pizza;
  *
  */
 public interface IPizzaDao {
-	LinkedList<Pizza> findAllPizzas();
+	ArrayList<Pizza> findAllPizzas();
 	
 	boolean saveNewPizza(Pizza pizza);
 	boolean updatePizza(String codePizza,Pizza pizza);

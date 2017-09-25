@@ -1,5 +1,10 @@
 package fr.pizzeria.model;
 
+import java.lang.annotation.Annotation;
+import java.text.DateFormat.Field;
+
+import org.omg.Messaging.SyncScopeHelper;
+
 /**
  * 
  * classe qui sert à gérer les pizzas
@@ -10,9 +15,18 @@ package fr.pizzeria.model;
 public class Pizza {
 
 	private int id;
+	
+	
 	private String code;
+	
+	
 	private String nom;
+	
+	
+	@ToString
 	private double prix;
+	@ToString
+	private CategoriePizza categorie;
 	static int CURRENT_ID=0;
 	
 	public int getId() {
@@ -45,6 +59,15 @@ public class Pizza {
 
 	public void setPrix(double prix) {
 		this.prix = prix;
+
+	}
+	
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
 	}
 	
 	public Pizza(String code,String nom,double prix){
@@ -54,9 +77,47 @@ public class Pizza {
 		this.id = CURRENT_ID;
 		CURRENT_ID++;
 	}
+	
+	public Pizza(String code,String nom,CategoriePizza categorie,double prix){
+		this.code = code;
+		this.nom = nom;
+		this.prix = prix;
+		this.id = CURRENT_ID;
+		this.categorie = categorie;
+		CURRENT_ID++;
+	}
 		
-	public void affPizza(){
-		System.out.println(code+" -> "+nom+"("+prix+"euros)");
+	public String toString(){
+		if(categorie!=null)
+			return code+" -> "+nom+" "+"categorie: " +categorie.toString()+" "+"("+ +prix+"euros)";
+		else
+			return code+" -> "+nom+"("+ prix+"euros)";
+	}
+	
+	
+	
+	public String toStringAnnotation(){
+		
+		String s = "";
+		Class classe = this.getClass();
+		for (java.lang.reflect.Field fields : classe.getDeclaredFields() ){
+				if(fields.isAnnotationPresent(ToString.class)){
+					if(fields.getName()=="id")
+						s += "id = "+id+" ";
+					else if(fields.getName()=="code")
+						s+="code = "+code+" ";
+					else if(fields.getName()=="nom")
+						s+="nom = "+nom+" ";
+					else if(fields.getName()=="prix")
+						s+="prix = "+prix+" ";
+					else if(fields.getName()=="categorie")
+						s+="categorie = "+categorie+" ";			
+						
+				}
+		}
+		
+		
+		return s;
 	}
 	
 	public boolean codeSemblabePizza(String code){

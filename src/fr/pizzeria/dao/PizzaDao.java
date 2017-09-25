@@ -3,8 +3,9 @@
  */
 package fr.pizzeria.dao;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
+import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
 /**
@@ -12,10 +13,10 @@ import fr.pizzeria.model.Pizza;
  *
  */
 public class PizzaDao implements IPizzaDao {
-	private LinkedList<Pizza> menu;
+	private ArrayList<Pizza> menu;
 	
 	public PizzaDao(){
-		menu = new LinkedList<Pizza>();
+		menu = new ArrayList<Pizza>();
 		menu.add(new Pizza("PEP","Pépéroni",12.50));
 		menu.add(new Pizza("MAR","Margherita",14));
 		menu.add(new Pizza("REIN","La Reine",11.50));
@@ -26,7 +27,7 @@ public class PizzaDao implements IPizzaDao {
 		menu.add(new Pizza("IND","L'indienne",14));
 	}
 
-	public LinkedList<Pizza> findAllPizzas() {
+	public ArrayList<Pizza> findAllPizzas() {
 		return menu;
 	}
 

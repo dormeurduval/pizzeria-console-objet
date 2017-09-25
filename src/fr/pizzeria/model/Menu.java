@@ -34,7 +34,7 @@ public class Menu {
 	
 	public void affMenu(){
 		for(int i=0;i<menu.size();i++){
-			menu.get(i).affPizza();
+			System.out.println(menu.get(i).toString());
 		}
 	}
 	
