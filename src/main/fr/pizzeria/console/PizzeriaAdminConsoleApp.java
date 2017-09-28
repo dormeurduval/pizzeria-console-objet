@@ -26,7 +26,6 @@ public class PizzeriaAdminConsoleApp {
 		SupprimerPizzaOptionMenu suppression = new SupprimerPizzaOptionMenu();
 		
 		
-		
 		while(!end){
 			try {
 				System.out.println("***Pizzeria Administration******");

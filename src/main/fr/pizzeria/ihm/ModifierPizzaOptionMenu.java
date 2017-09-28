@@ -4,11 +4,11 @@
 package fr.pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exeception.SavePizzaException;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exeception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+
 
 /**
  * @author joris
@@ -16,7 +16,7 @@ import fr.pizzeria.model.Pizza;
  */
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalArgumentException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir l'ancien code");

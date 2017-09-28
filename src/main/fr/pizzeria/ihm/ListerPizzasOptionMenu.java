@@ -4,7 +4,7 @@
 package fr.pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 
 /**
  * @author joris
@@ -12,7 +12,7 @@ import fr.pizzeria.dao.PizzaDao;
  */
 public class ListerPizzasOptionMenu extends OptionMenu {
 	
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws IllegalArgumentException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		return true;

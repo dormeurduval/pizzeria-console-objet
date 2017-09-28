@@ -1,9 +1,5 @@
 package fr.pizzeria.model;
 
-import java.lang.annotation.Annotation;
-import java.text.DateFormat.Field;
-
-import org.omg.Messaging.SyncScopeHelper;
 
 /**
  * 

@@ -4,9 +4,9 @@
 package fr.pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.exeception.DeletePizzaException;
-import fr.pizzeria.exeception.UpdatePizzaException;
+
 
 /**
  * @author joris
@@ -14,7 +14,7 @@ import fr.pizzeria.exeception.UpdatePizzaException;
  */
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws DeletePizzaException, IllegalArgumentException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws DeletePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir le code de la pizza à supprimer");

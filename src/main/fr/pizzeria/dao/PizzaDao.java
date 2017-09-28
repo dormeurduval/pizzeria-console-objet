@@ -5,7 +5,7 @@ package fr.pizzeria.dao;
 
 import java.util.ArrayList;
 
-import fr.pizzeria.model.CategoriePizza;
+
 import fr.pizzeria.model.Pizza;
 
 /**
