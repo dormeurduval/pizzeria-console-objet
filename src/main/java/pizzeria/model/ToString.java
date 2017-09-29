@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.pizzeria.model;
+package pizzeria.model;
 
 import java.lang.annotation.*;
 /**

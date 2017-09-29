@@ -1,7 +1,7 @@
 /**
  * 
  */
-package fr.pizzeria.exeception;
+package pizzeria.exeception;
 
 /**
  * @author joris

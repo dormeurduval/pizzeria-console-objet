@@ -1,15 +1,18 @@
-package fr.pizzeria.console;
+package pizzeria.console;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exeception.SavePizzaException;
+import pizzeria.dao.IPizzaDao;
+import pizzeria.dao.PizzaDao;
+import pizzeria.exeception.SavePizzaException;
 /**
  * 
  * classe principale
  * @author CHAFFARD Joris
  *
  */
-import fr.pizzeria.ihm.*;
+import pizzeria.ihm.*;
+
+
 
 public class PizzeriaAdminConsoleApp {
 
@@ -18,7 +21,7 @@ public class PizzeriaAdminConsoleApp {
 		boolean end = false;
 		final Scanner questionUser= new Scanner(System.in);
 		
-		PizzaDao menu = new PizzaDao();
+		IPizzaDao menu = new PizzaDao();
 		
 		AjouterPizzaOptionMenu ajout = new AjouterPizzaOptionMenu();
 		ListerPizzasOptionMenu listage = new ListerPizzasOptionMenu();

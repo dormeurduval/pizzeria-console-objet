@@ -1,13 +1,13 @@
 /**
  * 
  */
-package fr.pizzeria.ihm;
+package pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.IPizzaDao;
-import fr.pizzeria.exeception.UpdatePizzaException;
-import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Pizza;
+import pizzeria.dao.IPizzaDao;
+import pizzeria.exeception.UpdatePizzaException;
+import pizzeria.model.CategoriePizza;
+import pizzeria.model.Pizza;
 
 
 /**

@@ -1,10 +1,10 @@
 /**
  * 
  */
-package fr.pizzeria.dao;
+package pizzeria.dao;
 import java.util.ArrayList;
 
-import fr.pizzeria.model.Pizza;
+import pizzeria.model.Pizza;
 /**
  * @author joris
  *

@@ -1,10 +1,10 @@
 /**
  * 
  */
-package fr.pizzeria.ihm;
+package pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.IPizzaDao;
+import pizzeria.dao.IPizzaDao;
 
 /**
  * @author joris

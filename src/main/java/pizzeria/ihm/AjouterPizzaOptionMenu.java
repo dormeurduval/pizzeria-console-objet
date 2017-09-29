@@ -1,12 +1,13 @@
 
-package fr.pizzeria.ihm;
+package pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.PizzaDao;
-import fr.pizzeria.exeception.SavePizzaException;
-import fr.pizzeria.model.CategoriePizza;
-import fr.pizzeria.model.Pizza;
-o mon dieu une erreuresssss
+import pizzeria.dao.IPizzaDao;
+import pizzeria.exeception.SavePizzaException;
+import pizzeria.model.CategoriePizza;
+import pizzeria.model.Pizza;
+
+
 /**
  * AjouterPizzaOptionMenu est la classe permettant d'ajouter une pizza au menu
  * et de l'afficher
@@ -22,7 +23,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 	 * 
 	 */
 	
-	public boolean execute(PizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalArgumentException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalArgumentException, IllegalAccessException{
 		System.out.println();
 		affMenu(menu);
 		System.out.println("Veuillez saisir le code");

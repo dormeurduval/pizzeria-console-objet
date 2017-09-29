@@ -1,18 +1,18 @@
 /**
  * 
  */
-package fr.pizzeria.ihm;
+package pizzeria.ihm;
 import java.util.Scanner;
 
-import fr.pizzeria.dao.IPizzaDao;
-import fr.pizzeria.exeception.StockageException;
+import pizzeria.dao.IPizzaDao;
+import pizzeria.exeception.StockageException;
 /**
  * @author joris
  *
  */
 public abstract class OptionMenu {
 
-	abstract boolean execute(IPizzaDao menu,Scanner questionUser)throws StockageException,IllegalArgumentException, IllegalAccessException;
+	public abstract boolean execute(IPizzaDao menu,Scanner questionUser)throws StockageException,IllegalArgumentException, IllegalAccessException;
 	
 	abstract String getLibelle();
 	
