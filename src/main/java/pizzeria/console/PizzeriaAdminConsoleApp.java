@@ -1,23 +1,20 @@
 package pizzeria.console;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaDao;
-import pizzeria.exeception.SavePizzaException;
-/**
- * 
- * classe principale
- * @author CHAFFARD Joris
- *
- */
+
 import pizzeria.ihm.*;
 
 
 
 public class PizzeriaAdminConsoleApp {
-
+	static final Logger logger = Logger.getLogger(AjouterPizzaOptionMenu.class);
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		boolean end = false;
 		final Scanner questionUser= new Scanner(System.in);
 		
@@ -31,39 +28,38 @@ public class PizzeriaAdminConsoleApp {
 		
 		while(!end){
 			try {
-				System.out.println("***Pizzeria Administration******");
-				System.out.println("1:Lister les pizzas");
-				System.out.println("2:Ajouter une nouvelle pizza");
-				System.out.println("3:Mettre à jour une pizza");
-				System.out.println("4:Supprimé une pizza");
-				System.out.println("99:Sortir");
+				logger.info("***Pizzeria Administration******");
+				logger.info("1:Lister les pizzas");
+				logger.info("2:Ajouter une nouvelle pizza");
+				logger.info("3:Mettre à jour une pizza");
+				logger.info("4:Supprimé une pizza");
+				logger.info("99:Sortir");
 				
 				int answer = questionUser.nextInt();
 				questionUser.nextLine();
 				if(answer==1){
-					System.out.println(listage.getLibelle());
+					logger.info(listage.getLibelle());
 					listage.execute(menu, questionUser);
 				}
 				else if(answer==2){
-					System.out.println(ajout.getLibelle());
+					logger.info(ajout.getLibelle());
 					ajout.execute(menu, questionUser);
 				}
 				else if(answer==3){
-					System.out.println(modification.getLibelle());
+					logger.info(modification.getLibelle());
 					modification.execute(menu, questionUser);
 				}
 				else if(answer==4){
-					System.out.println(suppression.getLibelle());
+					logger.info(suppression.getLibelle());
 					suppression.execute(menu, questionUser);
 				}
 				else{
-					System.out.println("Aurevoir \u2639");
+					logger.info("Aurevoir \u2639");
 					end=true;
 				}
-				System.out.println();
+				logger.info("\n");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				System.out.println(e.getMessage());
+				logger.info(e.getMessage());
 			}
 		}
 		questionUser.close();

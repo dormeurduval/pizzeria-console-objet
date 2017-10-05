@@ -23,7 +23,7 @@ public class Pizza {
 	private double prix;
 	@ToString
 	private CategoriePizza categorie;
-	static int CURRENT_ID=0;
+	static int currentId=0;
 	
 	public int getId() {
 		return id;
@@ -70,17 +70,17 @@ public class Pizza {
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		this.id = CURRENT_ID;
-		CURRENT_ID++;
+		this.id = currentId;
+		currentId++;
 	}
 	
 	public Pizza(String code,String nom,CategoriePizza categorie,double prix){
 		this.code = code;
 		this.nom = nom;
 		this.prix = prix;
-		this.id = CURRENT_ID;
+		this.id = currentId;
 		this.categorie = categorie;
-		CURRENT_ID++;
+		currentId++;
 	}
 		
 	public String toString(){
@@ -92,17 +92,18 @@ public class Pizza {
 	
 	
 	
-	public String toStringAnnotation() throws IllegalArgumentException, IllegalAccessException{
+	public StringBuilder toStringAnnotation() throws IllegalAccessException{
 		
-		String s = "";
+		StringBuilder s=new StringBuilder();
 		Class classe = this.getClass();
 		for (java.lang.reflect.Field fields : classe.getDeclaredFields() ){
 				if(fields.isAnnotationPresent(ToString.class)){
 					if(!fields.getAnnotation(ToString.class).uppercase()){
-						s += fields.getName()+" = "+fields.get(this)+" ";
+						s = s.append(fields.getName()).append(" = ").append(fields.get(this)).append(" ");
 					}
 					else{
-						s += fields.getName().toUpperCase() + " = "+((String)fields.get(this)).toUpperCase()+" ";
+						s = s.append(fields.getName().toUpperCase()).append(" = ")
+								.append(((String)fields.get(this)).toUpperCase()).append(" ");
 					}
 						
 				}

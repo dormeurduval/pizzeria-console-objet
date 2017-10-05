@@ -15,25 +15,25 @@ import pizzeria.model.Pizza;
  *
  */
 public class ModifierPizzaOptionMenu extends OptionMenu {
-
-	public boolean execute(IPizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalArgumentException, IllegalAccessException{
-		System.out.println();
+	
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalAccessException{
+		logger.info("\n");
 		affMenu(menu);
-		System.out.println("Veuillez saisir l'ancien code");
-		System.out.println();
+		logger.info("Veuillez saisir l'ancien code");
+		logger.info("\n");
 		String oldCode=questionUser.nextLine();
 
-		System.out.println("Veuillez saisir le nouveau code");
-		System.out.println();
+		logger.info("Veuillez saisir le nouveau code");
+		logger.info("\n");
 		String newCode=questionUser.nextLine();
 		if(newCode.length()>3){
 			throw new UpdatePizzaException("Code trop long");
 		}
-		System.out.println("Veuillez saisir le nom(sans espace)");
-		System.out.println();
+		logger.info("Veuillez saisir le nom(sans espace)");
+		logger.info("\n");
 		String nom=questionUser.nextLine();
-		System.out.println("Veuillez saisir le prix");
-		System.out.println();
+		logger.info("Veuillez saisir le prix");
+		logger.info("\n");
 		int prix;
 		String str =questionUser.nextLine();
 		try{
@@ -42,11 +42,11 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			throw new UpdatePizzaException("Tu as mal entré ton entier");
 		}
 		
-		System.out.println();
-		System.out.println("Taper 1 si vous voulez une pizza avec viande");
-		System.out.println("Taper 2 si vous voulez une pizza avec poisson");
-		System.out.println("Taper 3 si vous voulez une pizza sans viande");
-		System.out.println("Taper 4 si vous ne voulez pas de garniture");
+		logger.info("\n");
+		logger.info("Taper 1 si vous voulez une pizza avec viande");
+		logger.info("Taper 2 si vous voulez une pizza avec poisson");
+		logger.info("Taper 3 si vous voulez une pizza sans viande");
+		logger.info("Taper 4 si vous ne voulez pas de garniture");
 		
 		str=questionUser.nextLine();
 		

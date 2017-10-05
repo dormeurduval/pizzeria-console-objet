@@ -7,7 +7,6 @@ import pizzeria.exeception.SavePizzaException;
 import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
-erreure
 /**
  * AjouterPizzaOptionMenu est la classe permettant d'ajouter une pizza au menu
  * et de l'afficher
@@ -15,30 +14,23 @@ erreure
  *
  */
 public class AjouterPizzaOptionMenu extends OptionMenu {
-
-	/**
-	 * execute
-	 * @throws IllegalAccessException 
-	 * @throws IllegalArgumentException 
-	 * 
-	 */
 	
-	public boolean execute(IPizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalArgumentException, IllegalAccessException{
-		System.out.println();
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalAccessException{
+		logger.info("\n");
 		affMenu(menu);
-		System.out.println("Veuillez saisir le code");
-		System.out.println();
+		logger.info("Veuillez saisir le code");
+		logger.info("\n");
 		String code;
 		code = questionUser.nextLine();
 		if(code.length()>3){
 			throw new SavePizzaException("Code trop long");
 		}
-		System.out.println("Veuillez saisir le nom(sans espace)");
-		System.out.println();
+		logger.info("Veuillez saisir le nom(sans espace)");
+		logger.info("\n");
 		String nom;
 		nom = questionUser.nextLine();
-		System.out.println("Veuillez saisir le prix");
-		System.out.println();
+		logger.info("Veuillez saisir le prix");
+		logger.info("\n");
 		String str =questionUser.nextLine();
 		int prix;
 		try{
@@ -46,11 +38,11 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		} catch (NumberFormatException e) {	  
 			throw new SavePizzaException("Tu as mal entré ton entier");
 		}	
-		System.out.println();
-		System.out.println("Taper 1 si vous voulez une pizza avec viande");
-		System.out.println("Taper 2 si vous voulez une pizza avec poisson");
-		System.out.println("Taper 3 si vous voulez une pizza sans viande");
-		System.out.println("Taper 4 si vous ne voulez pas de garniture");
+		logger.info("\n");
+		logger.info("Taper 1 si vous voulez une pizza avec viande");
+		logger.info("Taper 2 si vous voulez une pizza avec poisson");
+		logger.info("Taper 3 si vous voulez une pizza sans viande");
+		logger.info("Taper 4 si vous ne voulez pas de garniture");
 		
 		str=questionUser.nextLine();
 		
