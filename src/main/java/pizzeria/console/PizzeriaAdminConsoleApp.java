@@ -1,17 +1,13 @@
 package pizzeria.console;
 import java.util.Scanner;
-
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaDao;
-
 import pizzeria.ihm.*;
 
-
-
 public class PizzeriaAdminConsoleApp {
-	static final Logger logger = Logger.getLogger(AjouterPizzaOptionMenu.class);
+	static final Logger logger = Logger.getLogger(AjouterPizzaOptionMenu.class.getName());
 	
 	public static void main(String[] args) {
 		

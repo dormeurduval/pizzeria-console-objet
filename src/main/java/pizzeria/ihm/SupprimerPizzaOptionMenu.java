@@ -9,10 +9,6 @@ import pizzeria.dao.IPizzaDao;
 import pizzeria.exeception.DeletePizzaException;
 
 
-/**
- * @author joris
- *
- */
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 	
 	public boolean execute(IPizzaDao menu,Scanner questionUser) throws DeletePizzaException, IllegalAccessException{
