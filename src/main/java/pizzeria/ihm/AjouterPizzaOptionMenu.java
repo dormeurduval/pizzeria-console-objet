@@ -16,6 +16,7 @@ import pizzeria.model.Pizza;
 public class AjouterPizzaOptionMenu extends OptionMenu {
 	
 	public boolean execute(IPizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalAccessException{
+		String badInteger = "Tu as mal entré ton entier";
 		logger.info("\n");
 		affMenu(menu);
 		logger.info("Veuillez saisir le code");
@@ -36,7 +37,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		try{
 			  prix = Integer.parseInt(str);
 		} catch (NumberFormatException e) {	  
-			throw new SavePizzaException("Tu as mal entré ton entier");
+			throw new SavePizzaException(badInteger);
 		}	
 		logger.info("\n");
 		logger.info("Taper 1 si vous voulez une pizza avec viande");
@@ -50,7 +51,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		try{
 			  indice = Integer.parseInt(str);
 		} catch (NumberFormatException e) {	  
-			throw new SavePizzaException("Tu as mal entré ton entier");
+			throw new SavePizzaException(badInteger);
 		}
 		Pizza pizza;
 		
@@ -63,7 +64,7 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		else if(indice==4)	
 			pizza=new Pizza(code,nom,prix);
 		else
-			throw new SavePizzaException("Tu as entré un entier trop grand");
+			throw new SavePizzaException(badInteger);
 			
 		menu.saveNewPizza(pizza);
 		affMenu(menu);

@@ -7,7 +7,7 @@ import pizzeria.dao.PizzaDao;
 import pizzeria.ihm.*;
 
 public class PizzeriaAdminConsoleApp {
-	static final Logger logger = Logger.getLogger(AjouterPizzaOptionMenu.class.getName());
+	static final Logger logger = Logger.getLogger("");
 	
 	public static void main(String[] args) {
 		

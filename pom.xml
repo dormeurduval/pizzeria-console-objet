@@ -43,9 +43,22 @@
 	 					<goals>
 	 						<goal>shade</goal>
 	 					</goals>
-	 				</execution>
+	 				</execution>	 				
 	 			</executions>
 	 	</plugin>
+	 	<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>1.0-beta-2</version>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>sonar</goal>
+						</goals>
+					</execution>
+				</executions>
+		</plugin>
 	 </plugins>
   </build>	
   
