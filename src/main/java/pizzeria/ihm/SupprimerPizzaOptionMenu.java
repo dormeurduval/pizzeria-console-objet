@@ -7,11 +7,12 @@ import java.util.Scanner;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.exeception.DeletePizzaException;
+import pizzeria.exeception.StockageException;
 
 
 public class SupprimerPizzaOptionMenu extends OptionMenu {
 	
-	public boolean execute(IPizzaDao menu,Scanner questionUser) throws DeletePizzaException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws IllegalAccessException, StockageException{
 		logger.info("\n");
 		affMenu(menu);
 		logger.info("Veuillez saisir le code de la pizza à supprimer");

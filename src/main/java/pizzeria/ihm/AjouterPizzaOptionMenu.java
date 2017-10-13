@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.exeception.SavePizzaException;
+import pizzeria.exeception.StockageException;
 import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
 
@@ -15,7 +16,7 @@ import pizzeria.model.Pizza;
  */
 public class AjouterPizzaOptionMenu extends OptionMenu {
 	
-	public boolean execute(IPizzaDao menu,Scanner questionUser) throws SavePizzaException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws IllegalAccessException, StockageException{
 		String badInteger = "Tu as mal entré ton entier";
 		logger.info("\n");
 		affMenu(menu);

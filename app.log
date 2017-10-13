@@ -1,0 +1,62 @@
+17:24:33.192 [main] DEBUG  ***Pizzeria Administration******
+17:24:33.207 [main] DEBUG  1:Lister les pizzas
+17:24:33.207 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:24:33.207 [main] INFO   3:Mettre à jour une pizza
+17:24:33.207 [main] INFO   4:Supprimé une pizza
+17:24:33.207 [main] INFO   99:Sortir
+17:24:35.824 [main] INFO   Liste des pizzas
+17:24:35.834 [main] INFO   
+
+17:24:35.893 [main] INFO   CODE = PEP NOM = PÉPÉRONI prix = 12.5 categorie = null 
+17:24:35.893 [main] INFO   CODE = MAR NOM = MARGHERITA prix = 14.0 categorie = null 
+17:24:35.893 [main] INFO   CODE = REIN NOM = LA REINE prix = 11.5 categorie = null 
+17:24:35.893 [main] INFO   CODE = FRO NOM = LA 4 FROMAGES prix = 12.0 categorie = null 
+17:24:35.893 [main] INFO   CODE = CAN NOM = LA CANNIBALE prix = 12.5 categorie = null 
+17:24:35.893 [main] INFO   CODE = SAV NOM = LA SAVOYARDE prix = 13.0 categorie = null 
+17:24:35.893 [main] INFO   CODE = ORI NOM = L'ORIENTALE prix = 13.5 categorie = null 
+17:24:35.893 [main] INFO   CODE = IND NOM = L'INDIENNE prix = 14.0 categorie = null 
+17:24:35.893 [main] INFO   
+
+17:24:35.893 [main] DEBUG  ***Pizzeria Administration******
+17:24:35.893 [main] DEBUG  1:Lister les pizzas
+17:24:35.893 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:24:35.893 [main] INFO   3:Mettre à jour une pizza
+17:24:35.893 [main] INFO   4:Supprimé une pizza
+17:24:35.893 [main] INFO   99:Sortir
+17:29:02.641 [main] DEBUG  ***Pizzeria Administration******
+17:29:02.641 [main] DEBUG  1:Lister les pizzas
+17:29:02.641 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:29:02.641 [main] INFO   3:Mettre à jour une pizza
+17:29:02.641 [main] INFO   4:Supprimé une pizza
+17:29:02.641 [main] INFO   99:Sortir
+17:29:18.407 [main] DEBUG  ***Pizzeria Administration******
+17:29:18.407 [main] DEBUG  1:Lister les pizzas
+17:29:18.407 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:29:18.407 [main] INFO   3:Mettre à jour une pizza
+17:29:18.407 [main] INFO   4:Supprimé une pizza
+17:29:18.407 [main] INFO   99:Sortir
+17:31:12.616 [main] DEBUG  ***Pizzeria Administration******
+17:31:12.616 [main] DEBUG  1:Lister les pizzas
+17:31:12.616 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:31:12.616 [main] INFO   3:Mettre à jour une pizza
+17:31:12.616 [main] INFO   4:Supprimé une pizza
+17:31:12.616 [main] INFO   99:Sortir
+17:31:17.065 [main] INFO   Liste des pizzas
+17:31:17.065 [main] INFO   
+
+17:31:17.119 [main] INFO   CODE = PEP NOM = PÉPÉRONI prix = 12.5 categorie = null 
+17:31:17.119 [main] INFO   CODE = MAR NOM = MARGHERITA prix = 14.0 categorie = null 
+17:31:17.119 [main] INFO   CODE = REIN NOM = LA REINE prix = 11.5 categorie = null 
+17:31:17.119 [main] INFO   CODE = FRO NOM = LA 4 FROMAGES prix = 12.0 categorie = null 
+17:31:17.119 [main] INFO   CODE = CAN NOM = LA CANNIBALE prix = 12.5 categorie = null 
+17:31:17.119 [main] INFO   CODE = SAV NOM = LA SAVOYARDE prix = 13.0 categorie = null 
+17:31:17.119 [main] INFO   CODE = ORI NOM = L'ORIENTALE prix = 13.5 categorie = null 
+17:31:17.119 [main] INFO   CODE = IND NOM = L'INDIENNE prix = 14.0 categorie = null 
+17:31:17.119 [main] INFO   
+
+17:31:17.119 [main] DEBUG  ***Pizzeria Administration******
+17:31:17.119 [main] DEBUG  1:Lister les pizzas
+17:31:17.119 [main] DEBUG  2:Ajouter une nouvelle pizza
+17:31:17.119 [main] INFO   3:Mettre à jour une pizza
+17:31:17.119 [main] INFO   4:Supprimé une pizza
+17:31:17.119 [main] INFO   99:Sortir

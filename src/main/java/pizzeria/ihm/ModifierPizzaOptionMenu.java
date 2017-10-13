@@ -5,6 +5,7 @@ package pizzeria.ihm;
 import java.util.Scanner;
 
 import pizzeria.dao.IPizzaDao;
+import pizzeria.exeception.StockageException;
 import pizzeria.exeception.UpdatePizzaException;
 import pizzeria.model.CategoriePizza;
 import pizzeria.model.Pizza;
@@ -16,7 +17,7 @@ import pizzeria.model.Pizza;
  */
 public class ModifierPizzaOptionMenu extends OptionMenu {
 	
-	public boolean execute(IPizzaDao menu,Scanner questionUser) throws UpdatePizzaException, IllegalAccessException{
+	public boolean execute(IPizzaDao menu,Scanner questionUser) throws IllegalAccessException, StockageException{
 		logger.info("\n");
 		affMenu(menu);
 		logger.info("Veuillez saisir l'ancien code");

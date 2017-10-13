@@ -1,28 +1,33 @@
 package pizzeria.console;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaDao;
+import pizzeria.exeception.StockageException;
+import pizzeria.exeception.UpdatePizzaException;
 import pizzeria.ihm.*;
 
 public class PizzeriaAdminConsoleApp {
-	static final Logger logger = Logger.getLogger("");
+	static final Logger logger = LoggerFactory.getLogger("");
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IllegalAccessException, StockageException {
 		
-		boolean end = false;
 		final Scanner questionUser= new Scanner(System.in);
 		
 		IPizzaDao menu = new PizzaDao();
 		
-		AjouterPizzaOptionMenu ajout = new AjouterPizzaOptionMenu();
-		ListerPizzasOptionMenu listage = new ListerPizzasOptionMenu();
-		ModifierPizzaOptionMenu modification = new ModifierPizzaOptionMenu();
-		SupprimerPizzaOptionMenu suppression = new SupprimerPizzaOptionMenu();
+		HashMap<String,OptionMenu> optionMenu = new HashMap<>();
+		final Logger logger = LoggerFactory.getLogger("");
 		
-		
-		while(!end){
+		optionMenu.put("1",new ListerPizzasOptionMenu());
+		optionMenu.put("2",new AjouterPizzaOptionMenu());
+		optionMenu.put("3",new ModifierPizzaOptionMenu());
+		optionMenu.put("4",new SupprimerPizzaOptionMenu());
+		Boolean cont = true;
+		while(cont){
 			try {
 				logger.info("***Pizzeria Administration******");
 				logger.info("1:Lister les pizzas");
@@ -31,34 +36,27 @@ public class PizzeriaAdminConsoleApp {
 				logger.info("4:Supprimé une pizza");
 				logger.info("99:Sortir");
 				
-				int answer = questionUser.nextInt();
-				questionUser.nextLine();
-				if(answer==1){
-					logger.info(listage.getLibelle());
-					listage.execute(menu, questionUser);
+				String answer = questionUser.nextLine();
+				
+				if(optionMenu.get(answer)!=null){
+					logger.info(optionMenu.get(answer).getLibelle()+"\n");
+					optionMenu.get(answer).execute(menu, questionUser);
 				}
-				else if(answer==2){
-					logger.info(ajout.getLibelle());
-					ajout.execute(menu, questionUser);
-				}
-				else if(answer==3){
-					logger.info(modification.getLibelle());
-					modification.execute(menu, questionUser);
-				}
-				else if(answer==4){
-					logger.info(suppression.getLibelle());
-					suppression.execute(menu, questionUser);
+				else if(answer=="99"){
+					logger.info("Aurevoir");
 				}
 				else{
-					logger.info("Aurevoir \u2639");
-					end=true;
+					logger.info("Tu as mal entré ton entier");
 				}
-				logger.info("\n");
-			} catch (Exception e) {
+			} catch (StockageException e) {
 				logger.info(e.getMessage());
 			}
+			
 		}
-		questionUser.close();
+		
+		
+		
+		
 	}
 
 }
