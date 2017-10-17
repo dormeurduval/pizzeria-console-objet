@@ -47,7 +47,6 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		logger.info("Taper 1 si vous voulez une pizza avec viande");
 		logger.info("Taper 2 si vous voulez une pizza avec poisson");
 		logger.info("Taper 3 si vous voulez une pizza sans viande");
-		logger.info("Taper 4 si vous ne voulez pas de garniture");
 		
 		str=questionUser.nextLine();
 		
@@ -66,8 +65,6 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 			pizza=new Pizza(newCode,nom,CategoriePizza.POISSON,prix);	
 		else if(indice==3)
 			pizza=new Pizza(newCode,nom,CategoriePizza.SANS_VIANDE,prix);	
-		else if(indice==4)	
-			pizza=new Pizza(newCode,nom,prix);
 		else
 			throw new UpdatePizzaException("Tu as entré un entier trop grand");
 		

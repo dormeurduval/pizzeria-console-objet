@@ -1,4 +1,5 @@
 package pizzeria.console;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Scanner;
 import org.slf4j.Logger;
@@ -6,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaDao;
+import pizzeria.dao.PizzaJdbc;
 import pizzeria.exeception.StockageException;
 import pizzeria.exeception.UpdatePizzaException;
 import pizzeria.ihm.*;
@@ -13,11 +15,11 @@ import pizzeria.ihm.*;
 public class PizzeriaAdminConsoleApp {
 	static final Logger logger = LoggerFactory.getLogger("");
 	
-	public static void main(String[] args) throws IllegalAccessException, StockageException {
+	public static void main(String[] args) throws IllegalAccessException, StockageException, ClassNotFoundException, SQLException {
 		
 		final Scanner questionUser= new Scanner(System.in);
 		
-		IPizzaDao menu = new PizzaDao();
+		IPizzaDao menu = new PizzaJdbc();
 		
 		HashMap<String,OptionMenu> optionMenu = new HashMap<>();
 		final Logger logger = LoggerFactory.getLogger("");
@@ -42,7 +44,7 @@ public class PizzeriaAdminConsoleApp {
 					logger.info(optionMenu.get(answer).getLibelle()+"\n");
 					optionMenu.get(answer).execute(menu, questionUser);
 				}
-				else if(answer=="99"){
+				else if(answer.equals("99")){
 					logger.info("Aurevoir");
 				}
 				else{
