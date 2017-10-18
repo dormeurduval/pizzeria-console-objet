@@ -1,70 +1,53 @@
 package pizzeria.model;
 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 
  * classe qui sert à gérer les pizzas
  * @author CHAFFARD Joris
  *
  */
-
+@Entity
+@Table(name="pizza")
 public class Pizza {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	@Column
 	@ToString(uppercase=true)
 	private String code;
 	
+	@Column
 	@ToString(uppercase=true)
 	private String nom;
 	
 	
+	@Column
 	@ToString
 	private double prix;
+	
 	@ToString
+	@Enumerated(EnumType.STRING)
 	private CategoriePizza categorie;
+	
 	static int currentId=0;
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public double getPrix() {
-		return prix;
-	}
-
-	public void setPrix(double prix) {
-		this.prix = prix;
-
-	}
 	
-	public CategoriePizza getCategorie() {
-		return categorie;
+	public Pizza(){
+		
 	}
 
-	public void setCategorie(CategoriePizza categorie) {
-		this.categorie = categorie;
-	}
 	
 	public Pizza(String code,String nom,double prix){
 		this.code = code;
@@ -117,9 +100,51 @@ public class Pizza {
 		return code.equals(this.code);
 	}
 	
-	public void changPizza(String code,String nom,double prix){
-		this.code=code;
+	public void changPizza(Pizza p){
+		this.code=p.getCode();
+		this.nom = p.getNom();
+		this.prix = p.getPrix();
+		this.categorie=p.getCategorie();
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(double prix) {
 		this.prix = prix;
+
+	}
+	
+	public CategoriePizza getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(CategoriePizza categorie) {
+		this.categorie = categorie;
 	}
 }

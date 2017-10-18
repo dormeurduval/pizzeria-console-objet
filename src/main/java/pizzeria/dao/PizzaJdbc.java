@@ -162,5 +162,9 @@ public class PizzaJdbc implements IPizzaDao {
 		closeConnection();
 		return value>0;
 	}
+	
+	public void close(){
+		
+	}
 
 }

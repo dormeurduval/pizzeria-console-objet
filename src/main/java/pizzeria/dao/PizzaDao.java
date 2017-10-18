@@ -37,7 +37,7 @@ public class PizzaDao implements IPizzaDao {
 	public boolean updatePizza(String codePizza, Pizza pizza) {
 
 		Optional<Pizza> opt=menu.stream().filter(p->p.codeSemblabePizza(codePizza)).findAny();
-		opt.ifPresent(p->p.changPizza(codePizza,p.getNom(), p.getPrix()));
+		opt.ifPresent(p->p.changPizza(pizza));
 		
 		return opt.isPresent();
 		
@@ -47,4 +47,7 @@ public class PizzaDao implements IPizzaDao {
 		return menu.removeIf(p->p.codeSemblabePizza(codePizza));
 	}	
 	
+	public void close(){
+		
+	}
 }

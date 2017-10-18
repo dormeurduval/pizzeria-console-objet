@@ -44,7 +44,6 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 		logger.info("Taper 1 si vous voulez une pizza avec viande");
 		logger.info("Taper 2 si vous voulez une pizza avec poisson");
 		logger.info("Taper 3 si vous voulez une pizza sans viande");
-		logger.info("Taper 4 si vous ne voulez pas de garniture");
 		
 		str=questionUser.nextLine();
 		
@@ -62,8 +61,6 @@ public class AjouterPizzaOptionMenu extends OptionMenu {
 			pizza=new Pizza(code,nom,CategoriePizza.POISSON,prix);	
 		else if(indice==3)
 			pizza=new Pizza(code,nom,CategoriePizza.SANS_VIANDE,prix);	
-		else if(indice==4)	
-			pizza=new Pizza(code,nom,prix);
 		else
 			throw new SavePizzaException(badInteger);
 			

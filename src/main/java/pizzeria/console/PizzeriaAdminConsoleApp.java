@@ -5,9 +5,11 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ch.qos.logback.classic.LoggerContext;
 import pizzeria.dao.IPizzaDao;
 import pizzeria.dao.PizzaDao;
 import pizzeria.dao.PizzaJdbc;
+import pizzeria.dao.PizzaJpa;
 import pizzeria.exeception.StockageException;
 import pizzeria.exeception.UpdatePizzaException;
 import pizzeria.ihm.*;
@@ -15,11 +17,11 @@ import pizzeria.ihm.*;
 public class PizzeriaAdminConsoleApp {
 	static final Logger logger = LoggerFactory.getLogger("");
 	
-	public static void main(String[] args) throws IllegalAccessException, StockageException, ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws IllegalAccessException, StockageException {
 		
 		final Scanner questionUser= new Scanner(System.in);
 		
-		IPizzaDao menu = new PizzaJdbc();
+		IPizzaDao menu = new PizzaDao();
 		
 		HashMap<String,OptionMenu> optionMenu = new HashMap<>();
 		final Logger logger = LoggerFactory.getLogger("");
@@ -46,6 +48,7 @@ public class PizzeriaAdminConsoleApp {
 				}
 				else if(answer.equals("99")){
 					logger.info("Aurevoir");
+					cont=false;
 				}
 				else{
 					logger.info("Tu as mal entré ton entier");
@@ -56,9 +59,9 @@ public class PizzeriaAdminConsoleApp {
 			
 		}
 		
-		
-		
-		
+		questionUser.close();
+		menu.close();
+
 	}
 
 }
