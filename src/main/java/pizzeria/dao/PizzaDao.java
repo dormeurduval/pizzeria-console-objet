@@ -5,12 +5,15 @@ package pizzeria.dao;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 
 
 import pizzeria.model.Pizza;
 
-
+@Repository
 public class PizzaDao implements IPizzaDao {
 	private List<Pizza> menu;
 	
@@ -47,6 +50,7 @@ public class PizzaDao implements IPizzaDao {
 		return menu.removeIf(p->p.codeSemblabePizza(codePizza));
 	}	
 	
+	/** empty is needed for the interface*/
 	public void close(){
 		
 	}

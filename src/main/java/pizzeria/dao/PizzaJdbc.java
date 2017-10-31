@@ -70,7 +70,7 @@ public class PizzaJdbc implements IPizzaDao {
 		menu.add(new Pizza("SAV","La savoyarde",13));
 		menu.add(new Pizza("ORI","L'orientale",13.50));
 		menu.add(new Pizza("IND","L'indienne",14));
-		menu.stream().forEach(p->saveNewPizza(p));
+		menu.stream().forEach(this::saveNewPizza);
 	}
 	
 	
@@ -78,9 +78,10 @@ public class PizzaJdbc implements IPizzaDao {
 	public List<Pizza> findAllPizzas() {
 		List<Pizza>l=new ArrayList();
 		ResultSet resultats;
+		PreparedStatement listPizza;
 		openConnection();
 		try {
-			PreparedStatement listPizza= connection.prepareStatement("SELECT * FROM PIZZA");
+			listPizza= connection.prepareStatement("SELECT * FROM PIZZA");
 			resultats=listPizza.executeQuery("SELECT * FROM PIZZA");
 			while(resultats.next()){
 				BigDecimal prix=resultats.getBigDecimal("PRIX");
@@ -89,12 +90,13 @@ public class PizzaJdbc implements IPizzaDao {
 				CategoriePizza categorie = CategoriePizza.toCategoriePizza(resultats.getString("CATEGORIE"));
 				l.add(new Pizza(code,nom,categorie,prix.doubleValue()));
 				
-		}
-		resultats.close();
-		closeConnection();
+			}
+			listPizza.close();
 		} catch (SQLException e) {
 			logger.info(e.getMessage()); 
 		}
+
+		closeConnection();
 		
 		return l;
 	}
@@ -107,7 +109,7 @@ public class PizzaJdbc implements IPizzaDao {
 			PreparedStatement savePizza= connection.prepareStatement("INSERT INTO PIZZA(NOM,CODE,PRIX,CATEGORIE) VALUES(?,?,?,?)");
 			savePizza.setString(1,pizza.getNom());
 			savePizza.setString(2,pizza.getCode());
-			savePizza.setBigDecimal(3,new BigDecimal(pizza.getPrix()));
+			savePizza.setBigDecimal(3,BigDecimal.valueOf(pizza.getPrix()));
 			savePizza.setString(4,pizza.getCategorie().toString());
 			
 			value=savePizza.executeUpdate();
@@ -130,7 +132,7 @@ public class PizzaJdbc implements IPizzaDao {
 		
 		try {
 			PreparedStatement updatePizza= connection.prepareStatement(prop.getString("jdbc.updatePizza"));
-			updatePizza.setBigDecimal(1,new BigDecimal(pizza.getPrix()));
+			updatePizza.setBigDecimal(1,BigDecimal.valueOf(pizza.getPrix()));
 			updatePizza.setString(2,pizza.getCode());
 			updatePizza.setString(3,pizza.getNom());
 			updatePizza.setString(4,pizza.getCategorie().toString());
@@ -163,6 +165,7 @@ public class PizzaJdbc implements IPizzaDao {
 		return value>0;
 	}
 	
+	/** empty is needed for the interface*/
 	public void close(){
 		
 	}

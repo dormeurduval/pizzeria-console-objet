@@ -4,6 +4,8 @@
 package pizzeria.dao;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import pizzeria.model.Pizza;
 /**
  * @author joris
